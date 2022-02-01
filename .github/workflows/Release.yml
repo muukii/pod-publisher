@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       repo: 
+        description: "<owner>/<repo>"
         required: true
 
 jobs:
