@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+  workflow_dispatch:
+    inputs:
+      repo: 
+        required: true
+
+jobs:
+  pod-trunk-push:
+    runs-on: macOS-11
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1.1
+        with:
+          xcode-version: "13.2"
+      - uses: actions/checkout@v2
+        with: 
+          repository: ${{ github.event.inputs.repo }} 
+      - name: Deploy
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: pod trunk push --allow-warnings
