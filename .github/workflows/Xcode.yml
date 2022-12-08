@@ -1,0 +1,17 @@
+name: macOS 12
+
+on:
+  workflow_dispatch:
+    inputs:
+      xcode-version:
+      
+ 
+jobs:
+  pod-trunk-push:
+    runs-on: macOS-12
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1.1
+        with:
+          xcode-version: ${{ inputs.version }}
+      - name: Script
+        run: echo "Hey"
