@@ -1,11 +1,12 @@
-name: macOS 12
+name: Xcode
 
 on:
   workflow_dispatch:
     inputs:
       xcode-version:
-      
- 
+        type: string
+        required: true
+       
 jobs:
   pod-trunk-push:
     runs-on: macOS-12
