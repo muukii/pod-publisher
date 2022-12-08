@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: maxim-lobanov/setup-xcode@v1.1
         with:
-          xcode-version: ${{ github.event.inputs.version }}
+          xcode-version: ${{ inputs.xcode-version }}
       - name: Script
         run: echo "Hey"
